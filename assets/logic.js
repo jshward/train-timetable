@@ -17,6 +17,21 @@ $(document).ready(function () {
 	var dest = "";
 	var startTime = "";
 	var trainRate = 0;
+	var cellArray = []
+
+	function renderTimetable() {
+		for (var i = 0; i < cellArray.length; i++) {
+			var tableCell = $("<td>");
+			tableCell.append(cellArray[i]);
+			tableRow.append(tableCell)
+			trainTable.append(tableRow)
+
+
+
+
+
+		};
+	};
 
 
 
@@ -41,7 +56,7 @@ $(document).ready(function () {
 			freq: trainRate,
 			dateAdded: firebase.database.ServerValue.TIMESTAMP
 		});
-
+		renderTimetable();
 	});
 
 	database.ref().on("child_added", function (childSnapshot) {
@@ -84,16 +99,10 @@ $(document).ready(function () {
 		var cellArray = [childSnapshot.val().name, childSnapshot.val().dest, childSnapshot.val().freq, nextTrain, tMinutesTillTrain];
 		console.log(cellArray);
 
-		for (var i = 0; i < cellArray.length; i++) {
-			var tableCell = $("<td>");
-			tableCell.append(cellArray[i]);
-			tableRow.append(tableCell)
-			trainTable.append(tableRow)
+		renderTimetable();
 
 
 
 
-
-		};
 	});
 });
