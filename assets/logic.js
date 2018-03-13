@@ -34,7 +34,7 @@ $(document).ready(function () {
 	};
 
 
-	renderTimetable()
+
 
 
 	$("#add-train-btn").on("click", function (event) {
@@ -105,4 +105,6 @@ $(document).ready(function () {
 
 
 	});
+	renderTimetable();
+
 });
