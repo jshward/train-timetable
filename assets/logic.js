@@ -65,17 +65,17 @@ $(document).ready(function () {
 
 		// Time apart (remainder)
 		var tRemainder = diffTime % parseInt(trainRate);
-		console.log(tRemainder);
+		console.log("remaining" + tRemainder);
 
 		// Minute Until Train
-		var tMinutesTillTrain = trainRate - parseInt(tRemainder);
+		var tMinutesTillTrain = parseInt(trainRate) - parseInt(tRemainder);
 		console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 		// Next Train
 		var arrivStringTrain = moment().add(tMinutesTillTrain, "minutes");
-		console.log(arrivStringTrain);
+		console.log("time till train" + arrivStringTrain);
 
 		var nextTrain = moment(arrivStringTrain).format("hh:mm");
-		console.log(nextTrain);
+		console.log("nexttrain" + nextTrain);
 
 
 
